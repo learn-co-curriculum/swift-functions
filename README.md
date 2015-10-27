@@ -3,7 +3,7 @@
 ## Objectives
 
 1. Distinguish the functional and object-oriented programming paradigms.
-2. Learn how functions and method differ conceptually
+2. Learn how functions and methods differ conceptually
 3. Create and call simple custom functions in Swift.
 4. Create and call custom functions that provide a return.
 5. Create and call custom functions that take parameters.
@@ -132,7 +132,7 @@ We can capture our function's return into an instance by using `let` or `var` an
 ```swift
 let greeting = heyIOS()
 ```
-The instance `greeting` will now hold the string value `Heyyy, iOS!`, and be implicitly typed to match the method's return type.
+The instance `greeting` will now hold the string value `Heyyy, iOS!`, and be implicitly typed to match the function's return type.
 
 We can then print this instance as normal:
 
@@ -169,7 +169,7 @@ func nameOfFunctionParameter1(parameter1: Type1) -> ReturnType {
     // implementation
 }
 ```
-Notice the repetition of the first parameter's name in both the function's name *and* inside the parenthesis? The parameter's name inside the parenthesis defines its instance name within the scope of the function's body, so it's necessary for the logic of defining the function. The parameter name in the method call is style convention since the first parameter's name inside the parenthesis is not part of Swift function-calling syntax, so it is convention to name the parameter in the function itself. Experienced Objective-C developers will find this practice familiar.
+Notice the repetition of the first parameter's name in both the function's name *and* inside the parenthesis? The parameter's name inside the parenthesis defines its instance name within the scope of the function's body, so it's necessary for the logic of defining the function. The parameter name in the function call is a style convention since the first parameter's name inside the parenthesis is not part of Swift function-calling syntax, so it is convention to name the parameter in the function itself. Experienced Objective-C developers will find this practice familiar.
 
 Let's write a dynamic version of our `heyIOS()` function that takes a parameter for who we're going to greet with it. Let's call our new function `heyGroup()` and name its string parameter `group`:
 
