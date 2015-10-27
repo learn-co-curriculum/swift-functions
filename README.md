@@ -263,21 +263,21 @@ Notice how the second parameter is named in the function call?
 
 ### Functions With Many Parameters
 
-Functions which take more than two parameters follow this same syntax. To show an example, let's write new function that also tells the students how long in minutes the speaker will talk. We'll need to define our function with a third parameter that takes an integer:
+Functions which take more than two parameters follow this same syntax. To show an example, let's write a new function that also tells the students how long in minutes the speaker will talk. We'll need to define our function with a third parameter `minutes` that takes an integer:
 
 ```swift
 func heyListenGroup(group: String, speaker: String, minutes: Int) -> String {
     return "Heyyy, \(group)!" Come listen to \(speaker) give a talk for \(minutes) minutes."
 }
 ```
-We can then call our method in a similar way, passing in a value of the correct type for each parameter:
+We can then call our function in a similar way, passing in a value of the correct type for each parameter:
 
 ```swift
 let listenToOrta = heyListenGroup("everyone", speaker: "Orta", minutes: 60)
 ```
 The instance `listenToOrta` will hold the value `"Heyyy, everyone!" Come listen to Orta give a talk for 60 minutes."`.
 
-Did you notice that we wrote completely separate function with the same base name `heyListenGroup`? The compiler differentiates it by the parameters it takes. Objective-C developers will find this familiar because the names of the parameters are seen as part of the function's name.
+Did you notice that we wrote a completely separate function with the same base name `heyListenGroup` and yet the compiler never complained? The compiler differentiates it by the parameters it takes. Objective-C developers will find this familiar because the names of the parameters are seen as part of the function's name.
 
 ![](https://curriculum-content.s3.amazonaws.com/swift/swift-functions/autocomplete_functions_distinguished_by_parameters.png
 )
