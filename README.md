@@ -11,15 +11,15 @@
 
 ## Introduction
 
-As a language, Swift blends the programming paradigms of [Object-Oriented Programming (OOP)](https://en.wikipedia.org/wiki/Object-oriented_programming) with many elements of [functional programming](https://en.wikipedia.org/wiki/Functional_programming). This approach is more synonymous with modern programming languages like Ruby and Python which blend the paradigms also. Since Swift is capable of Object-Oriented Programming structures and thought patterns, it's capable of interfacing with code written in Objective-C which is a language that provides no support for functional programming beyond its C heritage.
+As a language, Swift blends the programming paradigms of [Object-Oriented Programming (OOP)](https://en.wikipedia.org/wiki/Object-oriented_programming) with many elements of [functional programming](https://en.wikipedia.org/wiki/Functional_programming). This approach is more synonymous with modern programming languages like Ruby and Python which blend the paradigms also.
 
 ### Functions vs. Methods
 
-In contrast to Objective-C, however, Swift permits implementations of functions that can be performed *without* an associated object (i.e. performed by the system itself). This is the philosophical distinction between methods and functions and the only distinguishing characteristic in Swift between writing methods and writing functions. The syntax for either is identical—with the exception that methods are associated with a particular class and have various options for visibility, etc. We'll discuss methods in more detail in later lessons.
+In contrast to Objective-C, Swift permits functions that are not associated with a class (i.e., they are standalone). This is the philosophical distinction between methods and functions: methods are attached to a class, and functions stand alone. In Swift, the syntax for either is identical—with the exception that methods are associated with a particular class and have various options for visibility, etc. We'll discuss methods in more detail in later lessons.
 
-All functions are available globally, meaning that they can be called from anywhere in a project which contains them. However, functions are written in a procedural manner which means that in their containing file, they can only be called *after* their definitions.
+Standalone functions are available globally, meaning that they can be called from anywhere in a project which contains them.
 
-Take for example the `print()` function that we've already introduced and had you use. It's a function (which means that it is performed by the system) with the defined behavior of sending an interpolated string argument to the Console Output viewer (a.k.a. the Debug Console). It's defined once in the Swift Foundation library and available anywhere that the Swift Foundation is imported (which will generally be *everywhere* in a Swift project).
+Take for example the `print()` function that we've already introduced and had you use. It's a function which sends its string argument to the Debug Console. It's defined once in the Swift Foundation library and available anywhere that the Swift Foundation is imported (which will generally be *everywhere* in a Swift project).
 
 ```swift
 print("Heyyy, iOS!")
@@ -46,14 +46,14 @@ We'll need to start with the keyword `func` that tells the compiler we'll be def
 ```swift
 func
 ```
-Then we'll need to give our function a name, ending with an empty parenthesis which signifies that our function takes no arguments (a.k.a. parameters), and opens the curly braces which defines the body of the function's implementation:
+Then we'll need to give our function a name, ending with a set of empty parentheses which signifies that our function takes no arguments (a.k.a. parameters), and opens the curly braces which defines the body of the function's implementation:
 
 ```swift
 func printTakeAWalk() {
 
 }
 ```
-**Top-tip:** *When writing a function which takes no arguments, do not forget the trailing parenthesis. Is is a required part of Swift's function syntax and cannot be omitted.*
+**Top-tip:** *When writing a function which takes no arguments, do not forget the trailing parentheses. Is is a required part of Swift's function syntax and cannot be omitted.*
 
 Now we're going to define the behavior that we want the function to perform, which is to print "Take a walk!":
 
@@ -101,7 +101,7 @@ This produces an error that reads `Use of unresolved identifier 'printTakeAWalk'
 
 ### Functions With A Return Type
 
-Functions which don't provide a return are actually pretty rare (though *methods* which don't return anything are common), so let's write a function that returns something. Let's standardize a greeting for the iOS class that goes "Heyyy, iOS!". Our function should simply return a string containing this value.
+Functions which don't provide a return are actually pretty rare, so let's write a function that returns something. Let's standardize a greeting for the iOS class that goes "Heyyy, iOS!". Our function should simply return a string containing this value.
 
 Let's start our new custom function just like we did before, using a different name:
 
