@@ -282,3 +282,5 @@ Did you notice that we wrote a completely separate function with the same base n
 ## Reference Link
 
 For Apple's documentation of Swift functions, review the [Functions](https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Functions.html#//apple_ref/doc/uid/TP40014097-CH10-ID158) chapter of *The Swift Programming Language*.
+
+<a href='https://learn.co/lessons/swift-functions' data-visibility='hidden'>View this lesson on Learn.co</a>
