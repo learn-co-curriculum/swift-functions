@@ -11,7 +11,7 @@
 
 ## Introduction
 
-As a language, Swift blends the programming paradigms of [Object-Oriented Programming (OOP)](https://en.wikipedia.org/wiki/Object-oriented_programming) with many elements of [functional programming](https://en.wikipedia.org/wiki/Functional_programming). This approach is more synonymous with modern programming languages like Ruby and Python which blend the paradigms also.
+As a language, Swift blends the programming paradigms of [Object-Oriented Programming (OOP)](https://en.wikipedia.org/wiki/Object-oriented_programming) with many elements of [functional programming](https://en.wikipedia.org/wiki/Functional_programming). This approach is more like dynamic programming languages like Ruby and Python which blend the paradigms also.
 
 ### Functions vs. Methods
 
@@ -101,7 +101,7 @@ This produces an error that reads `Use of unresolved identifier 'printTakeAWalk'
 
 ### Functions With A Return Type
 
-Functions which don't provide a return are actually pretty rare, so let's write a function that returns something. Let's standardize a greeting for the iOS class that goes "Heyyy, iOS!". Our function should simply return a string containing this value.
+Functions which don't provide a return are somewhat rare, so let's write a function that returns something. Let's standardize a greeting for the iOS class that goes "Heyyy, iOS!". Our function should simply return a string containing this value.
 
 Let's start our new custom function just like we did before, using a different name:
 
@@ -126,7 +126,7 @@ Great! Now we can access our standard greeting from anywhere in our code.
 
 #### Capturing A Function's Return
 
-We can capture our function's return into an instance by using `let` or `var` and the assignment operator `=`:
+We can capture our function's return into a variable by using `let` or `var` and the assignment operator `=`:
 
 ```swift
 let greeting = heyIOS()
@@ -147,7 +147,7 @@ Both of these will print: `Heyyy, iOS!`.
 
 ##### Namespace Errors
 
-It's important to note that attempting to use a function's name to name an instance will produce an error. If we attempt to capture the return of `heyIOS()` into an instance named `heyIOS`, the compiler will complain:
+It's important to note that attempting to use a function's name to name a variable will produce an error. If we attempt to capture the return of `heyIOS()` into a variable named `heyIOS`, the compiler will complain:
 
 ```swift
 func heyIOS() -> String {
@@ -157,20 +157,20 @@ let heyIOS = heyIOS()  // error
 ``` 
 ![](https://curriculum-content.s3.amazonaws.com/swift/swift-functions/error_variable_used_within_its_own_initial_value.png)
 
-So instead we have to name our capturing instance something else such as `greeting` like we did above.
+So instead we have to name our variable something else such as `greeting` like we did above.
 
 ### Functions With One Argument (a.k.a Parameter)
 
 To write a custom function which takes a single a argument, we're going to follow the syntax:
 
 ```swift
-func nameOfFunctionArgument1(argument1: Type1) -> ReturnType {
+func aFunctionThatDoesSomethingWithAThing(argument1: Type1) -> ReturnType {
     // implementation
 }
 ```
-Notice the repetition of the first argument's name in both the function's name *and* inside the parenthesis? The argument's name inside the parenthesis defines its instance name within the scope of the function's body, so it's necessary for the logic of defining the function. The argument name in the function call is a style convention since the first argument's name inside the parenthesis is not part of Swift function-calling syntax, so it is convention to name the argument in the function itself. Experienced Objective-C developers will find this practice familiar.
+The argument's name inside the parenthesis defines the name of that argument inside the scope of the function. So, in the function above, we would refer to the first argument as `argument1` when implementing the function.
 
-Let's write a dynamic version of our `heyIOS()` function that takes an argument for who we're going to greet with it. Let's call our new function `heyGroup()` and name its string argument `group`:
+Let's write a dynamic version of our `heyIOS()` function that takes an argument for who we're greeting. Let's call our new function `heyGroup()` and name its string argument `group`:
 
 ```swift
 func heyGroup(group: String) -> String {
@@ -184,9 +184,12 @@ func heyGroup(group: String) -> String {
     return "Heyyy, \(group)!"
 }
 ```
+Note that the group is referred to as `group` inside the function body.
+
+
 #### Calling A Single-Argument Function
 
-Now we can use our function to generate a special salutation for any group that we wish to greet. We need to pass it a string argument, so let's start with our "iOS" group to make sure it works right:
+Now we can use our function to generate a special salutation for any group that we wish to greet. We need to pass it a string argument, so let's start with our "iOS" group to make sure it works:
 
 ```swift
 let greetIOS = heyGroup("iOS")
@@ -200,7 +203,7 @@ print(heyGroup("iOS"))
 ```
 This will print: `Heyyy, iOS!`.
 
-Perfect! If we pass it a different string argument its return should adapt accordingly:
+Perfect! If we pass it a different string argument it should change accordingly:
 
 ```swift
 let greetWeb = heyGroup("Web")
@@ -231,14 +234,14 @@ let greetValjean = heyGroup("24601")  // accepted
 Now we're ready to unpack the full syntax from the beginning of this lesson:
 
 ```swift
-func nameOfFunctionArgument1(argument1: Type1, argument2: Type2) -> ReturnType {
+func nameOfFunction(argument1: Type1, argument2: Type2) -> ReturnType {
     // implementation
 }
 ```
-Inside the parenthesis, additional arguments are listed by `name: Type` separated by commas. Only the first argument name may be included in the function's name since the names of all additional arguments are part of the function-calling syntax:
+Inside the parenthesis, additional arguments are listed by `name: Type` separated by commas. The name of the function should reflect the meaning of the first argument. The names of all additional arguments are part of the function-calling syntax:
 
 ```swift
-let capture = nameOfFunctionArgument1(<value>, argument2: <value>)
+let capture = nameOfFunction(<value>, argument2: <value>)
 ```
 Let's create a new function that takes two arguments, one for the group, and for a speaker who's come to talk to the students, and return a string containing a message to tell the students:
 
@@ -247,16 +250,16 @@ func heyListenGroup(group: String, speaker: String) -> String {
     return "Heyyy, \(group)! Come listen to \(speaker) give a talk."
 }
 ```
-The base name of our new function is `heyListen` to which we've added the name of the first argument which is `group`. There is a second string argument for `speaker` listed inside the parenthesis and used in string interpolation that is returned.
+Note that the first part of the function name, `heyListGroup`, contains a hint as to the meaning of the first argument -- it is a group. There is a second string argument for `speaker` listed inside the parenthesis, and it is later used in string interpolation.
 
-To call our function, doing so would look like this:
+Calling our function would look like this:
 
 ```swift
 let listenToJoe = heyListenGroup("iOS", speaker: "Joe")
 ```
-The instance `listenToJoe` will now hold the value `"Heyyy, iOS! Come listen to Joe give a talk."`.
+The variable `listenToJoe` will now hold the value `"Heyyy, iOS! Come listen to Joe give a talk."`.
 
-Notice how the second argument is named in the function call?
+Notice how the second argument is named in the function call? Each argument is ideally preceded by a label that indicates its purpose. The first argument, `"iOS"`, is implied to be a group by `heyListenGroup`. Subsequent arguments are prefixed with their names from the function definition -- in this case, `speaker:` preceds the actual argument value, `"Joe"`, thus indicating that argument is a speaker's name.
 
 ### Functions With Many Arguments
 
@@ -272,7 +275,7 @@ We can then call our function in a similar way, passing in a value of the correc
 ```swift
 let listenToOrta = heyListenGroup("everyone", speaker: "Orta", minutes: 60)
 ```
-The instance `listenToOrta` will hold the value `"Heyyy, everyone!" Come listen to Orta give a talk for 60 minutes."`.
+The variable `listenToOrta` will hold the value `"Heyyy, everyone!" Come listen to Orta give a talk for 60 minutes."`.
 
 Did you notice that we wrote a completely separate function with the same base name `heyListenGroup` and yet the compiler never complained? The compiler differentiates it by the arguments it takes. Objective-C developers will find this familiar because the names of the arguments are seen as part of the function's name.
 
