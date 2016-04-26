@@ -250,7 +250,7 @@ func heyListenGroup(group: String, speaker: String) -> String {
     return "Heyyy, \(group)! Come listen to \(speaker) give a talk."
 }
 ```
-Note that the first part of the function name, `heyListGroup`, contains a hint as to the meaning of the first argument -- it is a group. There is a second string argument for `speaker` listed inside the parenthesis, and it is later used in string interpolation.
+Note that the first part of the function name, `heyListenGroup`, contains a hint as to the meaning of the first argument -- it is a group. There is a second string argument for `speaker` listed inside the parenthesis, and it is later used in string interpolation.
 
 Calling our function would look like this:
 
@@ -287,3 +287,5 @@ Did you notice that we wrote a completely separate function with the same base n
 For Apple's documentation of Swift functions, review the [Functions](https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Functions.html#//apple_ref/doc/uid/TP40014097-CH10-ID158) chapter of *The Swift Programming Language*.
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/swift-functions' title='Swift Functions'>Swift Functions</a>  on Learn.co and start learning to code for free.</p>
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/swift-functions'>Functions</a> on Learn.co and start learning to code for free.</p>
